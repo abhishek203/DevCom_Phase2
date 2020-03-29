@@ -1,0 +1,11 @@
+<h1>Your personalised dashboard</h1>
+
+{% for post in allposts %}
+    {% if post.userdetails.username == username %}
+        <h3>{{post.title}}</h3>
+        <p>{{post.author}}</p>
+        <p>{{post.date_pub}}</p>
+        <p>{{post.content}}</p>
+        <a href="{% url 'blogs:edit_blog' %}">Edit your blog</a>
+    {% endif %}
+{% endfor %}

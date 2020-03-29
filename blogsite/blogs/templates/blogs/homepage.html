@@ -1,0 +1,25 @@
+{% block body %}
+<h1>Home Page</h1>
+<div>
+    <h2>Login for personalized dashboard</h2>
+    <form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+        <button style="background-color:yellow; color:blue" type="submit">Login</button><br>
+    </form>
+</div>
+
+<br><h1>List of Blogs</h1>
+{% for post in allpost %}
+
+<div>
+  
+    <h3>{{post.title}}</h3>
+    <p>{{post.author}}</p>
+    <p>{{post.date_pub}}</p>
+    <p>{{post.content|truncatechars:150}}</p>
+    
+   </div>
+
+{% endfor %}
+{% endblock %}
